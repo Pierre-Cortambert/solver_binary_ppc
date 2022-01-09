@@ -6,7 +6,9 @@ Les domaines des variables seront finis.
 
 # Nous considérons des CSP sous forme de triplet (X,D,C) , avec :
 **X** : les variables x1, ... , xn (sont entières)  
+
 **D** : les domaines des variables 
+
 **C** : les contraintes sont définies sur deux variables (i,j) par un ensemble de tuples C[i,j] (2 valeurs ordonnées) qui satisfont la contrainte
 
 # Vous pourrez trouver dans les fichiers suivants :
@@ -29,9 +31,9 @@ Pour utiliser le solveur :
     	
 	-le 2e est la **méthode de résolution**  : 0 backtracking, 1 backtracking + AC3, 2 backtracking + forward checking, 3 backtracking + forward checking + AC3
     	
-	Si vous avez choisi comme problème le numéro 1 : il faut ajouter la **dimension n du plateau**
+	Si vous avez choisi comme problème -le numéro 1 : il faut ajouter la **dimension n du plateau**
     	
-					   le numéro 2 : il faut ajouter le **nom du fichier** et le **nombre de couleur à tester**
+					   -le numéro 2 : il faut ajouter le **nom du fichier** et le **nombre de couleur à tester**
     
     Ensuite, si vous voulez ajouter des paramètres supplémentaires, il faut ajouter des termes: (vous pouvez en ajouter soit les 2 premiers soit les 4)
 
