@@ -31,9 +31,11 @@ Pour utiliser le solveur :
     	
 	-le 2e est la **méthode de résolution**  : 0 backtracking, 1 backtracking + AC3, 2 backtracking + forward checking, 3 backtracking + forward checking + AC3
     	
-	Si vous avez choisi comme problème -le numéro 1 : il faut ajouter la **dimension n du plateau**
+	Si vous avez choisi comme problème 
+	
+	-le numéro 1 : il faut ajouter la **dimension n du plateau**
     	
-					   -le numéro 2 : il faut ajouter le **nom du fichier** et le **nombre de couleur à tester**
+	-le numéro 2 : il faut ajouter le **nom du fichier** et le **nombre de couleur à tester**
     
     Ensuite, si vous voulez ajouter des paramètres supplémentaires, il faut ajouter des termes: (vous pouvez en ajouter soit les 2 premiers soit les 4)
 
