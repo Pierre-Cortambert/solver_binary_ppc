@@ -11,7 +11,7 @@ Les domaines des variables seront finis.
 
 **C** : les contraintes sont définies sur deux variables (i,j) par un ensemble de tuples C[i,j] (2 valeurs ordonnées) qui satisfont la contrainte
 
-# Vous pourrez trouver dans les fichiers suivants :
+## Vous pourrez trouver dans les fichiers suivants :
 
 **main.py** : fichier principal appelant les autres fonctions 
 
