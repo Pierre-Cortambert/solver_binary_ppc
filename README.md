@@ -25,9 +25,9 @@ Pour utiliser le solveur :
 
 - vous pouvez faire appel directement au solveur via main.py en ajoutant des termes :
 	
-	le 1er est le **problème considéré**    : 0 pour problème vu en cours, 1 pour les n-reines, 2 pour la colorabilité
+	-le 1er est le **problème considéré**    : 0 pour problème vu en cours, 1 pour les n-reines, 2 pour la colorabilité
     	
-	le 2e est la **méthode de résolution**  : 0 backtracking, 1 backtracking + AC3, 2 backtracking + forward checking, 3 backtracking + forward checking + AC3
+	-le 2e est la **méthode de résolution**  : 0 backtracking, 1 backtracking + AC3, 2 backtracking + forward checking, 3 backtracking + forward checking + AC3
     	
 	Si vous avez choisi comme problème le numéro 1 : il faut ajouter la **dimension n du plateau**
     	
@@ -45,14 +45,14 @@ Pour utiliser le solveur :
     		
 # Exemples :
 
-	pour vérifier les 12-reines avec un backtrack + AC3 :
+pour vérifier les 12-reines avec un backtrack + AC3 :
 
-**python3 main.py 1 1 12**
+	python3 main.py 1 1 12
 
-	pour vérifier la 12 colorabilité de jean.col (se trouvant dans le foldeur instance_couleur/) avec un backtrack + forward checking + AC3 en commançant avec une variable randomisée
+pour vérifier la 12 colorabilité de jean.col (se trouvant dans le foldeur instance_couleur/) avec un backtrack + forward checking + AC3 en commançant avec une variable randomisée
 
-**python3 main.py 2 3 jean.col 12 1 0**
+	python3 main.py 2 3 jean.col 12 1 0
 
-	pour vérifier le problème du cours (j'ai changé une contrainte), avec backtrack, une initialisation et branchement par défaut et la contrainte alldiff:
+pour vérifier le problème du cours (j'ai changé une contrainte), avec backtrack, une initialisation et branchement par défaut et la contrainte alldiff:
 	
-**python3 main.py 0 0 0 0 1 0**
+	python3 main.py 0 0 0 0 1 0
