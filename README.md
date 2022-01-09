@@ -1,10 +1,10 @@
-## Ce projet correspond au cours de Programmation Par Contrainte du Master Parisien de Recherche Opérationnelle
+# Ce projet correspond au cours de Programmation Par Contrainte du Master Parisien de Recherche Opérationnelle
 Il a été entierement réalisé par Pierre Cortambert sur la base du cours de David Savourey.
 
 L’objectif du projet est d’implémenter un solveur générique de CSP où les contraintes sont binaires et les variables entières. 
 Les domaines des variables seront finis. 
 
-# Nous considérons des CSP sous forme de triplet (X,D,C) , avec :
+## Nous considérons des CSP sous forme de triplet (X,D,C) , avec :
 **X** : les variables x1, ... , xn (sont entières)  
 
 **D** : les domaines des variables 
@@ -47,7 +47,7 @@ Pour utiliser le solveur :
 		**alldiff** : mettre à 1 pour mettre la contrainte que toutes les variables ont une valeur différente
     		**summ** : mettre à un entier n pour mettre la contrainte que la somme des variables soit inférieure à cet entier (si vous ne voulez pas appliquer cette contrainte mettre à 0)
     		
-# Exemples :
+### Exemples :
 
 pour vérifier les 12-reines avec un backtrack + AC3 :
 
