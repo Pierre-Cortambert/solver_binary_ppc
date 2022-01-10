@@ -170,8 +170,8 @@ def main() :
                             c.append(C[i,j][k])
                     C[i,j]=c
                         
-
-    solution = Backtrack_0(I,X,D,C,cons,branch,summ)
+    d=D.copy()
+    solution = Backtrack_0(I,X,D,d,C,cons,branch,summ)
     print("Solution : ")
     print(solution)
     end = time.time()
