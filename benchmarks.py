@@ -1,6 +1,5 @@
 import numpy as np
 
-#https://interstices.info/le-probleme-des-8-reines-et-au-dela/
 def reines(n):
     X = n
     D=n*[[k for k in range(1,n+1)]]
