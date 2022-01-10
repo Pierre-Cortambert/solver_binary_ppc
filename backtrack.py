@@ -18,7 +18,6 @@ def valide(I,X,D,C):
                 return False
     return True
 
-
 def Backtrack_1(I,X,D,d,C,cons,branch,summ): #I affectation partielle [[1,2],[3,7]] si variable x2=2 et x4=7 (c'est un np.array([[1,2],[3,7]] ))
     global solution
     solution = "pas possible" 
@@ -50,9 +49,7 @@ def Backtrack_1(I,X,D,d,C,cons,branch,summ): #I affectation partielle [[1,2],[3,
                 x = np.argmax(l)
         e=d.copy()
         for v in D[x]: # Rq : on prend les valeurs dans l'ordre de D[x], on aurait pu prendre un ordre aléatoire avec random.shufle(D[x])
-                                    
-            #print("(x,v)=",x,v)
-            if sum(I[:,1]+v) <= summ : #si pas de contrainte, summ est fixé à plus grand float
+            if sum(I[:,1])+v <= summ : #si pas de contrainte, summ est fixé à plus grand float
                 J = np.append( I, [np.array([x,v])],axis=0)
                 if cons == 2 or cons == 3 :
                         d = forward_checking(J,X,d,C)
@@ -64,6 +61,7 @@ def Backtrack_1(I,X,D,d,C,cons,branch,summ): #I affectation partielle [[1,2],[3,
                     if cons==2 or cons==3:
                         d = e.copy()               
         return False
+
 
 def Backtrack_0(I,X,D,d,C,cons,branch,summ): 
     print("Obtient-on une solution réalisable ? ",Backtrack_1(I,X,D,d,C,cons,branch,summ))
