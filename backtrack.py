@@ -18,10 +18,10 @@ def valide(I,X,D,C):
                 return False
     return True
 
-def Backtrack_1(I,X,D,d,C,cons,branch,summ): #I affectation partielle [[1,2],[3,7]] si variable x2=2 et x4=7 (c'est un np.array([[1,2],[3,7]] ))
+def Backtrack_1(I,X,D,C,cons,branch,summ): #I affectation partielle [[1,2],[3,7]] si variable x2=2 et x4=7 (c'est un np.array([[1,2],[3,7]] ))
     global solution
     solution = "pas possible" 
-    if not valide(I,X,D,C) or [] in d:
+    if not valide(I,X,D,C) or [] in D:
         solution = "pas possible"  
         return False
     if len(I) == X : #ie I est complète dès le début
@@ -47,22 +47,22 @@ def Backtrack_1(I,X,D,d,C,cons,branch,summ): #I affectation partielle [[1,2],[3,
             while x in I[:,0] :
                 l[x]= np.min(l)-1
                 x = np.argmax(l)
-        e=d.copy()
+        d=D.copy()
         for v in D[x]: # Rq : on prend les valeurs dans l'ordre de D[x], on aurait pu prendre un ordre aléatoire avec random.shufle(D[x])
             if sum(I[:,1])+v <= summ : #si pas de contrainte, summ est fixé à plus grand float
                 J = np.append( I, [np.array([x,v])],axis=0)
                 if cons == 2 or cons == 3 :
-                        d = forward_checking(J,X,d,C)
-                if Backtrack_1(J,X,D,d,C,cons,branch,summ) :
+                        D = forward_checking(J,X,D,C)
+                if Backtrack_1(J,X,D,C,cons,branch,summ) :
                     if len(J) == X : 
                         solution=J
                     return True    
                 else : 
                     if cons==2 or cons==3:
-                        d = e.copy()               
+                        D = d.copy()               
         return False
 
 
-def Backtrack_0(I,X,D,d,C,cons,branch,summ): 
-    print("Obtient-on une solution réalisable ? ",Backtrack_1(I,X,D,d,C,cons,branch,summ))
+def Backtrack_0(I,X,D,C,cons,branch,summ): 
+    print("Obtient-on une solution réalisable ? ",Backtrack_1(I,X,D,C,cons,branch,summ))
     return solution
