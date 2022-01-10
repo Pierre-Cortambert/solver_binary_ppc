@@ -51,7 +51,7 @@ def main() :
                 print("alldiff = ",alldiff)
                 summ = int(sys.argv[k+3])
                 print("summ = ",summ)           
-                if type(summ)==int or summ==0:
+                if type(summ)!=int or summ==0:
                     summ=float('inf')
         else :
             print("Vous n'avez pas choisi de paramétrisation supplémentaire.")
@@ -81,6 +81,7 @@ def main() :
             print("Le CSP est l'exemple donné dans le cours (cours 1 - slide 12) avec une contrainte supplémentaire dans C2 : (1,7). ")
             X = 4
             D = np.array([[1,4,5,8],[2,3,5,7,9],[4,8,7,9],[1,4,5,7,8,9]])
+            #C = np.array([[[0],[0],[[1,7],[1,9],[5,9]],[[1,1],[1,5],[1,7],[5,5],[5,9],[8,9]]],[[0],[0],[0],[[2,7],[2,9],[5,8],[7,9],[9,9]]],[[0],[0],[0],[[4,1],[8,1],[9,7]]],[[0],[0],[0],[0]]])
             C = np.array([[[0],[0],[[1,7],[1,9],[5,9]],[[1,1],[1,5],[1,7],[5,5],[5,9],[8,9]]],[[0],[0],[0],[[2,7],[2,9],[5,8],[7,9],[9,9]]],[[[7,1],[9,1],[9,5]],[0],[0],[[4,1],[8,1],[9,7]]],[[[1,1],[5,1],[7,1],[5,5],[9,5],[9,8]],[[7,2],[9,2],[8,5],[9,7],[9,9]],[[1,4],[1,8],[7,9]],[0]]])
         elif probleme == 1 :
             print("Vous avez sélectionné le problème des n-Reines.")
@@ -131,12 +132,20 @@ def main() :
                 alldiff=int(input())
                 print("Variable de somme maximale : (oui : entrer entier naturel, non: entrer 0)")
                 summ = int(input())
-                if type(summ)==int or summ==0:
+                if type(summ)!=int or summ==0:
                     summ=float('inf')
         elif param == 0:
             print("Vous n'avez pas choisi de paramétrisation supplémentaire.")
         elif param not in [0,1]:
             print("Demande de paramétrisation incorrecte.")
+
+    
+
+    #DEBUT TEMPS
+    start = time.time()
+
+    if cons == 1 or cons == 3 :
+        D = AC3(X,D,C) 
 
     #initialisation :
     if init == 0:
@@ -154,30 +163,24 @@ def main() :
     elif branch == 1:
         I = np.array([[variable_init,random.choice(D[0])]])
 
-    #DEBUT TEMPS
-    start = time.time()
-
-    if cons == 1 or cons == 3 :
-        D = AC3(X,D,C) 
-
     if alldiff == 1: #on va changer C
         for i in range(X):
             for j in range(X):
                 if 0 not in C[i,j]:
+                    c=[]
                     for k in range(len(C[i,j])):
-                        c=[]
+                        #print(C[i,j][k][0],C[i,j][k][1])
                         if C[i,j][k][0] != C[i,j][k][1]:
                             c.append(C[i,j][k])
                     C[i,j]=c
-                        
-    d=D.copy()
-    solution = Backtrack_0(I,X,D,d,C,cons,branch,summ)
+    
+    solution = Backtrack_0(I,X,D,C,cons,branch,summ)
     print("Solution : ")
     print(solution)
     end = time.time()
 
     print("L'algorithme a tourné pendant ",end-start," secondes !")
-    if probleme == 2 and type(solution)!= np.ndarray:
+    if probleme == 2 and type(solution)== np.ndarray:
         g = max(solution[:,1])
         print("Nombre de couleur dans le graphe : ",g)
     
